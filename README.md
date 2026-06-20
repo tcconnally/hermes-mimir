@@ -19,7 +19,11 @@ dependencies.
 ## Installation
 
 ```bash
-pip install hermes-mimir
+# From GitHub (until published to PyPI)
+pip install git+https://github.com/Perseus-Computing-LLC/hermes-mimir.git
+
+# Or from PyPI (coming soon)
+# pip install hermes-mimir
 ```
 
 Then install the Mimir binary:
