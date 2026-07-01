@@ -1,8 +1,8 @@
 # hermes-mimir
 
-Mimir persistent memory provider for [Hermes Agent](https://github.com/NousResearch/hermes-agent).
+Mneme (formerly "Mimir") persistent memory provider for [Hermes Agent](https://github.com/NousResearch/hermes-agent).
 
-Mimir is an encrypted, local-first memory engine for AI agents — 27 MCP tools,
+Mneme is an encrypted, local-first memory engine for AI agents — 27 MCP tools,
 single Rust binary (~8 MB), embedded SQLite + FTS5 + vector search. Zero cloud
 dependencies.
 
@@ -26,14 +26,14 @@ pip install git+https://github.com/Perseus-Computing-LLC/hermes-mimir.git
 # pip install hermes-mimir
 ```
 
-Then install the Mimir binary:
+Then install the Mneme binary (still named `mimir` for back-compat, `mneme` is the new primary name):
 
 ```bash
 # Via cargo
-cargo install mimir
+cargo install mneme
 
 # Or download from GitHub Releases
-# https://github.com/Perseus-Computing-LLC/mimir/releases
+# https://github.com/Perseus-Computing-LLC/mneme/releases
 ```
 
 ### Hermes Plugin Setup
@@ -84,18 +84,18 @@ hermes gateway restart
 
 `hermes-mimir` implements Hermes's `MemoryProvider` ABC. On startup, it:
 
-1. Launches the Mimir binary as a subprocess
+1. Launches the Mneme binary as a subprocess
 2. Performs an MCP JSON-RPC 2.0 handshake (`initialize`)
 3. Discovers available MCP tools via `tools/list`
 4. Exposes those tools to the Hermes agent as callable functions
 5. Handles `prefetch` (recall before each turn) and `sync_turn` (persist after each turn)
 
 The agent sees `mimir_remember`, `mimir_recall`, `mimir_search_memories`, and
-24 other tools — all backed by the Mimir binary running alongside Hermes.
+24 other tools — all backed by the Mneme binary running alongside Hermes.
 
 ## Comparison
 
-| Feature | Built-in memory | Mimir |
+| Feature | Built-in memory | Mneme |
 |---|---|---|
 | Storage | Flat text files | Encrypted SQLite |
 | Search | Substring grep | FTS5 + embeddings + RRF |
@@ -117,10 +117,10 @@ pytest
 
 ## License
 
-MIT — same as Hermes Agent and Mimir.
+MIT — same as Hermes Agent and Mneme.
 
 ## Related
 
-- [Mimir](https://github.com/Perseus-Computing-LLC/mimir) — the memory engine
+- [Mneme](https://github.com/Perseus-Computing-LLC/mneme) — the memory engine (formerly "Mimir")
 - [Hermes Agent](https://github.com/NousResearch/hermes-agent) — the agent framework
 - [Perseus](https://github.com/Perseus-Computing-LLC/perseus) — live context engine for AI agents
